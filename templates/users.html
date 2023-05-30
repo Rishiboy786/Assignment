@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registered Users</title>
+</head>
+<body>
+    <h1>Registered Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>CV</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ range .Users }}
+                <tr>
+                    <td>{{ .FirstName }}</td>
+                    <td>{{ .LastName }}</td>
+                    <td>{{ .DOB.Format "2006-01-02" }}</td>
+                    <td>{{ .Email }}</td>
+                    <td>{{ .Phone }}</td>
+                    <td><a href="/{{ .CVPath }}">Download CV</a></td>
+                </tr>
+            {{ end }}
+        </tbody>
+    </table>
+</body>
+</html>
